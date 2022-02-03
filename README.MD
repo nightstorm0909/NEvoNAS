@@ -45,14 +45,23 @@ bash ./scripts/s1/arch_search.sh cifar100 gpu_num output_dir data_dir
   <tr>
     <td><img src="imgs/s1_c100_results.png" width="800" /></td>
   </tr>
-
+  <tr>
+     <th>Search Results on ImageNet</th>
+  </tr>
+  <tr>
+    <td><img src="imgs/s1_imagenet_results.png" width="800" /></td>
+  </tr>
 </table>
 
 #### Testing the discovered cells
 ```
 bash ./s1/test_arch.sh cifar10 gpu_num data_dir batch_size genotype.pickle weights.pt outputs_dir
 ```
-Replace cifar10 with cifar100 for testing the discovered cells on CIFAR-100.
+Replace cifar10 with cifar100 for testing the discovered cells on CIFAR-100. For ImageNet, use the following:
+
+```
+bash ./s1/test_imagenet.sh batch_size genotype.pickle data_dir imagenet_weight.tar
+```
 
 ##### Best Discovered Cells on CIFAR-10
 <table>

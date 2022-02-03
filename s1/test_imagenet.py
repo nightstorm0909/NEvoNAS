@@ -21,7 +21,7 @@ from model import NetworkImageNet as Network
 
 
 parser = argparse.ArgumentParser("imagenet")
-parser.add_argument('--dir', type=str, default = None, help='location of the genotype directory')
+parser.add_argument('--genotype', type=str, default = None, help='location of the genotype')
 parser.add_argument('--data', type=str, default='../data/imagenet/', help='location of the data corpus')
 parser.add_argument('--batch_size', type=int, default=128, help='batch size')
 parser.add_argument('--report_freq', type=float, default=100, help='report frequency')
@@ -50,8 +50,8 @@ def main():
   if args.arch is not None:
     genotype = eval("genotypes.%s" % args.arch)
   
-  if args.dir is not None:
-    with open(os.path.join(args.dir, "genotype.pickle"), 'rb') as f:
+  if args.genotype is not None:
+    with open(args.genotype, 'rb') as f:
       genotype = pickle.load(f)
     logging.info("Unpickling genotype.pickle")
   logging.info(genotype)
